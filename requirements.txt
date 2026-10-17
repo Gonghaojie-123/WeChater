@@ -1,0 +1,9 @@
+PyYAML>=6.0
+requests>=2.31
+APScheduler>=3.10
+
+# ---- 采集层（可选，仅 Windows 生产环境需要）----
+# 驱动官方 PC 微信客户端读取新消息。当前(2026)解密数据库的老方案
+# (ChatLog / PyWxDump / WeChatMsg)已被微信官方集中下架，UI 自动化是仅存的可用路线。
+# 安装前请阅读 README 的合规提示。
+# wxauto>=3.9

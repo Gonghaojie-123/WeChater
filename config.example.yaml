@@ -1,0 +1,51 @@
+# WeChater 配置模板 —— 复制成 config.yaml 后按需修改。
+# ${VAR} 形式的环境变量会被自动展开。
+
+wechat:
+  # 采集后端：file（本地记录文件，通用/可测试）| wxauto（驱动官方客户端）| http（自建源）
+  collector: file
+
+  # ---- collector: file ----
+  file_path: data/messages.jsonl
+
+  # ---- collector: wxauto ----
+  # 需要 Windows + 登录着的 PC 微信客户端；只读，不发送。
+  wxauto:
+    interval: 60            # 每次读取前停留秒数，避免过密
+
+  # ---- collector: http ----
+  # 任意返回 [{chat,sender,content,time}, ...] 的 HTTP 端点。
+  http:
+    url: ""
+
+  # ---- 只看这些来源，其余忽略。留空 = 全部 ----
+  whitelist:
+    chats: []               # 群名 / 联系人昵称
+    require_at_me_in_group: false   # true = 群消息必须 @我 才处理
+    keywords: ["截止", "deadline", "尽快", "记得", "麻烦", "请", "帮我",
+               "安排", "明天", "今天", "会议", "@我"]
+
+llm:
+  provider: deepseek
+  base_url: https://api.deepseek.com
+  api_key: ${DEEPSEEK_API_KEY}      # 建议用环境变量，别硬编码
+  model: deepseek-chat
+  min_importance_push: 0.5          # 低于此分数只入库、不推强提醒
+  max_msgs_per_call: 40             # 每次送给模型的消息上限（控制成本）
+
+notify:
+  provider: ntfy
+  server: https://ntfy.sh           # 国内建议自建，改成你自己的地址
+  topic: CHANGE_ME_wechater         # 换成一个别人猜不到的字符串
+  levels:
+    urgent: 5                        # importance >= 0.8
+    normal: 3                        # 0.5 - 0.8
+    silent: 2                        # < 0.5
+
+schedule:
+  poll_interval: 120                 # 秒，实时轮询间隔
+  digest_time: "08:00"               # 每日摘要推送时间（本地时区）
+  digest_enabled: true
+
+store:
+  db_path: data/wechater.db

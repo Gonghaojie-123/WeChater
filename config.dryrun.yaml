@@ -1,0 +1,39 @@
+# 离线演示配置：不联网、不调用 API、不推送，用示例数据跑通全链路。
+# 运行： python -m wechater.main --config config.dryrun.yaml --once
+
+wechat:
+  collector: file
+  file_path: data/sample_messages.jsonl
+  whitelist:
+    chats: []
+    require_at_me_in_group: false
+    keywords: ["截止", "deadline", "尽快", "记得", "麻烦", "请", "帮我",
+               "安排", "明天", "今天", "会议", "@我"]
+
+llm:
+  provider: deepseek
+  base_url: https://api.deepseek.com
+  api_key: ""
+  model: deepseek-chat
+  min_importance_push: 0.5
+  max_msgs_per_call: 40
+
+notify:
+  provider: ntfy
+  server: https://ntfy.sh
+  topic: dryrun
+  levels:
+    urgent: 5
+    normal: 3
+    silent: 2
+
+schedule:
+  poll_interval: 120
+  digest_time: "08:00"
+  digest_enabled: true
+
+store:
+  db_path: data/dryrun.db
+
+# 全局干跑开关：true 时 -> 规则分析（不调 LLM）+ 控制台输出（不发 ntfy）
+dryrun: true

@@ -1,0 +1,10 @@
+{"chat": "产品群", "sender": "李经理", "content": "本周五下午 3 点开 Q3 复盘会，请提前整理数据 @我", "time": "2026-10-16 09:12", "is_group": true, "is_at_me": true, "id": "g1"}
+{"chat": "产品群", "sender": "小王", "content": "收到", "time": "2026-10-16 09:13", "is_group": true, "is_at_me": false, "id": "g2"}
+{"chat": "产品群", "sender": "张工", "content": "昨晚的构建挂了，我看是缓存问题，已经修了", "time": "2026-10-16 09:20", "is_group": true, "is_at_me": false, "id": "g3"}
+{"chat": "产品群", "sender": "李经理", "content": "另外那份供应商合同，明天之前要给我确认一下", "time": "2026-10-16 09:25", "is_group": true, "is_at_me": true, "id": "g4"}
+{"chat": "老板", "sender": "老板", "content": "这周五的汇报材料准备得怎么样了？尽快发我看看", "time": "2026-10-16 10:02", "is_group": false, "is_at_me": false, "id": "p1"}
+{"chat": "老板", "sender": "老板", "content": "记得把预算那页重新做一下，数字对不上", "time": "2026-10-16 10:03", "is_group": false, "is_at_me": false, "id": "p2"}
+{"chat": "家人", "sender": "妈", "content": "今天晚上回来吃饭吗？", "time": "2026-10-16 10:30", "is_group": false, "is_at_me": false, "id": "f1"}
+{"chat": "技术群", "sender": "路人", "content": "刚看到某开源库发版了", "time": "2026-10-16 11:00", "is_group": true, "is_at_me": false, "id": "t1"}
+{"chat": "技术群", "sender": "老刘", "content": "谁帮忙看下这个内存泄漏，我卡一天了 @我", "time": "2026-10-16 11:15", "is_group": true, "is_at_me": true, "id": "t2"}
+{"chat": "客户群", "sender": "客户A", "content": "请问下周三能安排上门演示吗？需要约个时间", "time": "2026-10-16 14:00", "is_group": true, "is_at_me": false, "id": "c1"}

@@ -1,0 +1,9 @@
+# 运行时产物
+__pycache__/
+*.pyc
+data/*.db
+
+# 本地私有配置与真实数据（不要提交）
+config.yaml
+data/messages.jsonl
+.env
